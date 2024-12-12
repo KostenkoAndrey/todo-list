@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Clicker from "./components/Clicker"
 import ColorClicker from "./components/ColorClicker"
+import ToDoList from "./components/ToDoList"
 
 function App() {
 const [click, setClick] = useState(0);
@@ -12,6 +13,7 @@ const [click, setClick] = useState(0);
     counter={click} 
     setCounter={setClick}/>
     <ColorClicker/>
+    <ToDoList/>
     </>
   )
 };

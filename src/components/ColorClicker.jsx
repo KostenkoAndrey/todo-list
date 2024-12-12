@@ -5,7 +5,7 @@ import color from "./color.json";
 const ColorClicker = ()=> {
     const [currentColor, setCurrentColor] = useState('white');
 
-    return (<div className={s.colorContainer}>
+    return (<div className={s.colorContainer} style={{backgroundColor:currentColor}}>
         <h1>{currentColor}</h1>
         <ul className={s.colorList}>
            {color.map( i => (
