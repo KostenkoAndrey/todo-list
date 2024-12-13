@@ -17,8 +17,7 @@ setCounter(0);
 evt.target.blur();
 }
 const handleStepChange = (evt) => {
-    const value = +evt.target.value;
-    setStep(value);
+    setStep(+evt.target.value);
 }
     return  <div className={s.container}>
             <h2 className={s.title}>{counter}</h2>
