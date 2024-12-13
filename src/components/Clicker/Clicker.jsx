@@ -22,7 +22,7 @@ const handleStepChange = (evt) => {
 }
     return  <div className={s.container}>
             <h2 className={s.title}>{counter}</h2>
-            <input className={s.input} onInput={handleStepChange} type="number"/>
+            <input className={s.inputs} onInput={handleStepChange} placeholder="Pls Input Number..." type="number"/>
             <div className={s.innercont}>
                 <button className={s.btn} onClick={handleAhead}>Start</button>
                 <button className={s.btn} onClick={handleAstern}>End</button>

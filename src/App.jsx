@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import './App.css'
-import Clicker from "./components/Clicker"
-import ColorClicker from "./components/ColorClicker"
-import ToDoList from "./components/ToDoList"
+import Clicker from "./components/Clicker/Clicker"
+import ColorClicker from "./components/ColorClicker/ColorClicker"
+import ToDoList from "./components/ToDoList/ToDoList"
+
 
 function App() {
 const [click, setClick] = useState(0);
-
   return (
     <>
-    <Clicker
+    {/* <Clicker
     counter={click} 
     setCounter={setClick}/>
-    <ColorClicker/>
+    <ColorClicker/> */}
     <ToDoList/>
     </>
   )
