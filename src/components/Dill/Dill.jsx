@@ -14,7 +14,15 @@ setTotal(data.Pools);
 fetchDataAsync();
 }, []);
 if (!total) {
-  return <div>Loading...</div>;
+  return <div style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+      fontSize: "36px"
+    }}>
+      <div>Loading...</div>
+    </div>;
 }
 
 const sortedPools = total.sort((a, b) => {
@@ -22,7 +30,7 @@ const sortedPools = total.sort((a, b) => {
   const indexB = indexAddress.findIndex(addr => addr.toLowerCase() === b.PoolAddress.toLowerCase());
   return indexA - indexB;
 });
-console.log(sortedPools);
+
 const status = (status) => {
 return clsx(
     status === "ActiveFull" ? s.activeFull : null,
@@ -34,7 +42,7 @@ return clsx(
 };
 return (
 <table className={s.table}>
-   <thead>
+  <thead>
         <tr>
           <th>N</th>
           <th>PoolAddress</th>
