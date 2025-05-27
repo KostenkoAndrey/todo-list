@@ -1,0 +1,44 @@
+import axios from "axios";
+
+const BASE_URL = "https://contacts-app-xj5y.onrender.com";
+const WALLET = "0xD73d38C9850A0006D5BD28A01Da915feA7673c25";
+
+export const fetchData = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/dill/${WALLET}`);
+    return response.data;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const indexAddress = [
+'0xaa67c80Be7927228889A3301603F6e89d8E64CD6',
+'0xd2454a82c1c1749dbe4e215c093fb5ed969600a6',
+'0x515f11533390419f2D5eA1efda7A59e13664D10d',
+'0x908595c8c086e35157508fd904c875bbc15cd593',
+'0x4bbe83e7fac6e20b0aa7720c19d95e0955cf46d8',
+'0x0f10801c23b1a5acb00dc4db9ba0e5bdcd7ccfe8',
+'0x64a5d3a0c8379bb75d3cba01a49dcec5a202d3c1',
+'0x94b88e3d68672d7cee89758ff62cf3539c1d2c76',
+'0x660b3ceaf7dee9e3cd1b5855dec8adf6570fb314',
+'0x09a9cb3bc2d83c539a43a7dcd19e16cbe7f641d8',
+'0x53ff01a51a3185da5859c54c556b1d3e7f5ac0f4',
+'0xd428f63294d9e30e800eea2e761ebeaa87ff99ae',
+'0x01d146a388e018bc0353174577a17ed11918341e',
+'0xcd367d4489881bec132a7559b00693d7fa8e2b36',
+'0x9be8bdb5e450aef1dec389920e7f3b339ff3e0d3',
+'0x334eedc040fae78a82e5ce9169fc9dd8b8d90799',
+'0x8fb42b60372c970edcb92dd757ced9451658030c',
+'0x2034e9c211fca380537143188ab7e17a7a34ebcf',
+'0xb991928b84252d54b2e9e85805a552e5375b39cb',
+'0x05591a890213494b96d63ece2cebfc61feb62757',
+'0xef2f7005e19c3f15ee4a2a4f87783d3c3692006d',
+'0x2e54ca21a88cdedb08684c781c700c772b0aa691',
+'0xb67dc5d80fc6bb37eec9716d7622becf9c4664c5',
+'0x245110f1d272f8832ec4cd3f013a0260e050aa3a',
+'0x1b76382a4a470988830896086c3a0076df6de7cc',
+'0x3e1E2540F0F53912d9bA951522b54E9885F032Ba',
+'0x7a7c10255F00fe17E7d024035e1636Cd0A41b9ba',
+'0x3CDB5E3005580F67b25e759F724a6b3d56B94033'];
+

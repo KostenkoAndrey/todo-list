@@ -1,0 +1,49 @@
+table{
+margin: auto;
+border: 2px solid black;
+border-collapse: collapse;
+width: 1280px;
+}
+
+thead{
+border: 2px solid black;
+}
+
+th, td {
+  color: black;
+  border: 1px solid black;
+  padding: 0 4px;
+  text-align: center;
+  font-size: 16px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+background-color: rgb(167, 165, 167);
+}
+
+.activeOpen {
+    color: green;
+    font-weight: 700;
+}
+
+.activeFull {
+    color: red;
+    font-weight: 700;
+}
+
+.unStaking {
+    color: #fd7e14;
+    font-weight: 700;
+}
+.awaitingLiquidation {
+    color: #b71c1c;
+    font-weight: 700;
+}
+.creating {
+    color: #007bff;
+    font-weight: 700;
+}
