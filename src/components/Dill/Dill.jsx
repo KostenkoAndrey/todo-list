@@ -29,8 +29,6 @@ useEffect(() => {
       })
     );
     setTotal(results);
-    
-console.log(total);
   };
 
   fetchDataAsync();
@@ -61,6 +59,13 @@ if (sorted.length === 0) {
     );
   }
 
+const daysToExpire = (timeInSeconds)=> {
+ const time = timeInSeconds * 1000;
+  const remaining = time - Date.now();
+  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+  return days;
+};
+
   const status = (status) => {
     return clsx(
       status === "ActiveFull" ? s.activeFull : null,
@@ -71,16 +76,24 @@ if (sorted.length === 0) {
     );
   };
 
+  const getClassName = (time) => {
+  const days = daysToExpire(time);
+  if (days > 10) return clsx(s.days, s.green);
+  if (days > 3) return clsx(s.days, s.orange);
+  return clsx(s.days, s.red);
+};
+
   return (
 <table className={s.table}>
   <thead>
-    <tr>
+    <tr className={s.header}>
       <th>N</th>
       <th>PoolAddress</th>
       <th>Status</th>
       <th>StakedAmount</th>
       <th>TotalRewards</th>
       <th>OperatorAddress</th>
+      <th>Days to expire</th>
       <th>CreateTime</th>
       <th>ExpTime</th>
     </tr>
@@ -90,7 +103,7 @@ if (sorted.length === 0) {
     <tbody key={name}>
       <tr>
         <td
-          colSpan={8}
+          colSpan={9}
           style={{
             fontWeight: "bold",
             background: "#f5f5f5",
@@ -111,6 +124,7 @@ if (sorted.length === 0) {
           <td>{`${p.StakedAmount / 1e9} / 36000`}</td>
           <td>{(p.TotalReward / 1e9).toFixed(2)}</td>
           <td>{p.OperatorAddress}</td>
+          <td className={getClassName(p.ExpirationTime)}>{daysToExpire(p.ExpirationTime)}</td>
           <td>{new Date(p.CreationTime * 1000).toLocaleString()}</td>
           <td>{new Date(p.ExpirationTime * 1000).toLocaleString()}</td>
         </tr>

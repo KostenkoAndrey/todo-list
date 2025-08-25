@@ -10,7 +10,7 @@ border: 2px solid black;
 }
 
 th, td {
-  color: black;
+color: black;
   border: 1px solid black;
   padding: 0 4px;
   text-align: center;
@@ -36,7 +36,7 @@ background-color: rgb(167, 165, 167);
 }
 
 .unStaking {
-    color: #fd7e14;
+    color: orange;
     font-weight: 700;
 }
 .awaitingLiquidation {
@@ -46,6 +46,23 @@ background-color: rgb(167, 165, 167);
 .creating {
     color: #007bff;
     font-weight: 700;
+}
+
+.days {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.days.green {
+  color: green;
+}
+
+.days.orange {
+  color: orange;
+}
+
+.days.red {
+  color: red;
 }
 
 
