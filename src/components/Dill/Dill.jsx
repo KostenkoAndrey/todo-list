@@ -28,8 +28,6 @@ useEffect(() => {
         };
       })
     );
-
-
     setTotal(results);
   };
 
@@ -39,13 +37,13 @@ useEffect(() => {
 const sorted = total.map(item => {
   return {
     ...item,
-    pool: item.pool.filter(i => i.OperatorAddress === item.wallet)
+    pool: item.pool
+  .filter(i => i.OperatorAddress === item.wallet)
+  .sort((a, b) => b.CreationTime - a.CreationTime)
   };
 });
 
-console.log("sorted:", sorted);
-
-if (!total) {
+if (sorted.length === 0) {
     return (
       <div
         style={{
@@ -72,9 +70,9 @@ if (!total) {
   };
 
   return (
-   <table className={s.table}>
+  <table className={s.table}>
   <thead>
-    <tr>
+    <tr className={s.stick}>
       <th>N</th>
       <th>PoolAddress</th>
       <th>Status</th>
