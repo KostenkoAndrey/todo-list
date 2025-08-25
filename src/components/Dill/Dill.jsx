@@ -15,7 +15,7 @@ const wallet = [
 
 const Dill = () => {
   const [total, setTotal] = useState([]);
- 
+
 useEffect(() => {
   const fetchDataAsync = async () => {
     const results = await Promise.all(
@@ -29,6 +29,8 @@ useEffect(() => {
       })
     );
     setTotal(results);
+    
+console.log(total);
   };
 
   fetchDataAsync();
@@ -38,8 +40,8 @@ const sorted = total.map(item => {
   return {
     ...item,
     pool: item.pool
-  .filter(i => i.OperatorAddress === item.wallet)
-  .sort((a, b) => b.CreationTime - a.CreationTime)
+    .filter(i => i.OperatorAddress === item.wallet)
+    .sort((a, b) => b.CreationTime - a.CreationTime)
   };
 });
 
@@ -70,9 +72,9 @@ if (sorted.length === 0) {
   };
 
   return (
-  <table className={s.table}>
+<table className={s.table}>
   <thead>
-    <tr className={s.stick}>
+    <tr>
       <th>N</th>
       <th>PoolAddress</th>
       <th>Status</th>
@@ -84,31 +86,39 @@ if (sorted.length === 0) {
     </tr>
   </thead>
 
-  <tbody>
-    {sorted.map(({ name, pool }) => (
-      <React.Fragment key={name}>
-        <tr>
-          <td colSpan={8} style={{ fontWeight: "bold", background: "#f5f5f5" }}>
-            {name} Account
-          </td>
-        </tr>
+  {sorted.map(({ name, pool }) => (
+    <tbody key={name}>
+      <tr>
+        <td
+          colSpan={8}
+          style={{
+            fontWeight: "bold",
+            background: "#f5f5f5",
+            position: "sticky",
+            top: 0,
+            zIndex: 2
+          }}
+        >
+          {name} Account
+        </td>
+      </tr>
 
-        {pool.map((p, index) => (
-          <tr key={`${name}-${index}`}>
-            <td>{index + 1}</td>
-            <td>{p.PoolAddress}</td>
-            <td className={status(p.Status)}>{p.Status}</td>
-            <td>{`${p.StakedAmount / 1e9} / 36000`}</td>
-            <td>{(p.TotalReward / 1e9).toFixed(2)}</td>
-            <td>{p.OperatorAddress}</td>
-            <td>{new Date(p.CreationTime * 1000).toLocaleString()}</td>
-            <td>{new Date(p.ExpirationTime * 1000).toLocaleString()}</td>
-          </tr>
-        ))}
-      </React.Fragment>
-    ))}
-  </tbody>
+      {pool.map((p, index) => (
+        <tr key={`${name}-${index}`}>
+          <td>{index + 1}</td>
+          <td>{p.PoolAddress}</td>
+          <td className={status(p.Status)}>{p.Status}</td>
+          <td>{`${p.StakedAmount / 1e9} / 36000`}</td>
+          <td>{(p.TotalReward / 1e9).toFixed(2)}</td>
+          <td>{p.OperatorAddress}</td>
+          <td>{new Date(p.CreationTime * 1000).toLocaleString()}</td>
+          <td>{new Date(p.ExpirationTime * 1000).toLocaleString()}</td>
+        </tr>
+      ))}
+    </tbody>
+  ))}
 </table>
+
   );
 };
 
