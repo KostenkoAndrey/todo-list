@@ -40,7 +40,7 @@ background-color: rgb(167, 165, 167);
     font-weight: 700;
 }
 .awaitingLiquidation {
-    color: #b71c1c;
+    color: #007bff;
     font-weight: 700;
 }
 .creating {
@@ -65,4 +65,8 @@ background-color: rgb(167, 165, 167);
   color: red;
 }
 
+.rewards{
+  color: #000000;
+  font-weight: 700;
+}
 

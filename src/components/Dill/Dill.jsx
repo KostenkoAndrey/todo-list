@@ -134,7 +134,7 @@ const daysToExpire = (timeInSeconds)=> {
           <td>{p.PoolAddress}</td>
           <td className={status(p.Status)}>{p.Status}</td>
           <td>{`${p.StakedAmount / 1e9} / 36000`}</td>
-          <td>{(p.TotalReward / 1e9).toFixed(2)}</td>
+          <td className={s.rewards}>{(p.TotalReward / 1e9).toFixed(2)}</td>
           <td>{p.OperatorAddress}</td>
           <td className={getClassName(p.ExpirationTime)}>{daysToExpire(p.ExpirationTime)}</td>
           <td>{toLocalTime(p.CreationTime)}</td>
