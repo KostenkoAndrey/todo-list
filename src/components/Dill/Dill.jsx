@@ -59,13 +59,6 @@ if (sorted.length === 0) {
     );
   }
 
-const daysToExpire = (timeInSeconds)=> {
- const time = timeInSeconds * 1000;
-  const remaining = time - Date.now();
-  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
-  return days;
-};
-
   const status = (status) => {
     return clsx(
       status === "ActiveFull" ? s.activeFull : null,
@@ -76,11 +69,30 @@ const daysToExpire = (timeInSeconds)=> {
     );
   };
 
-  const getClassName = (time) => {
+const getClassName = (time) => {
   const days = daysToExpire(time);
   if (days > 10) return clsx(s.days, s.green);
   if (days > 3) return clsx(s.days, s.orange);
   return clsx(s.days, s.red);
+};
+
+const toLocalTime = (time) => {
+  return new Date(time * 1000).toLocaleString("ru-RU", {
+    timeZone: "UTC",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+};
+
+const daysToExpire = (timeInSeconds)=> {
+ const time = timeInSeconds * 1000;
+  const remaining = time - Date.now();
+  const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+  return days;
 };
 
   return (
@@ -125,16 +137,15 @@ const daysToExpire = (timeInSeconds)=> {
           <td>{(p.TotalReward / 1e9).toFixed(2)}</td>
           <td>{p.OperatorAddress}</td>
           <td className={getClassName(p.ExpirationTime)}>{daysToExpire(p.ExpirationTime)}</td>
-          <td>{new Date(p.CreationTime * 1000).toLocaleString()}</td>
-          <td>{new Date(p.ExpirationTime * 1000).toLocaleString()}</td>
+          <td>{toLocalTime(p.CreationTime)}</td>
+          <td>{toLocalTime(p.ExpirationTime)}</td>
         </tr>
       ))}
     </tbody>
   ))}
 </table>
 
-  );
-};
+)};
 
 
 export default Dill;
