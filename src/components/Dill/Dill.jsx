@@ -171,7 +171,7 @@ const statPool = sorted.reduce((acc, { pool }) => {
             height: 30,
           }}
         >
-          {`Pools:${statPool.number}, Staked:${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked}`} 
+          {`Total:${statPool.number}, Staked:${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked}`} 
         </td>
       </tr>
 </table>
