@@ -44,7 +44,6 @@ const sorted = total.map(item => {
     .sort((a, b) => b.CreationTime - a.CreationTime)
   };
 });
-console.log(sorted);
 
 if (sorted.length === 0) {
     return (
@@ -98,6 +97,19 @@ const daysToExpire = (timeInSeconds)=> {
   return days;
 };
 
+
+const statPool = sorted.reduce((acc, { pool }) => {
+  const stat = pool.reduce((pAcc, i) => {
+    pAcc.staked += i.StakedAmount / 1e9;
+    pAcc.number += 1;
+    return pAcc;
+  }, { staked: 0, number: 0 });
+
+  acc.staked += stat.staked;
+  acc.number += stat.number;
+  return acc;
+}, { staked: 0, number: 0 });
+
   return (
 <table className={s.table}>
   <thead>
@@ -146,6 +158,22 @@ const daysToExpire = (timeInSeconds)=> {
       ))}
     </tbody>
   ))}
+  <tr>
+        <td
+          colSpan={9}
+          style={{
+            fontWeight: "bold",
+            fontSize: '20px',
+            color: 'red',
+            background: "#ffffffff",
+            position: "sticky",
+            top: 0,
+            height: 30,
+          }}
+        >
+          {`Pools:${statPool.number}, Staked:${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked}`} 
+        </td>
+      </tr>
 </table>
 
 )};
