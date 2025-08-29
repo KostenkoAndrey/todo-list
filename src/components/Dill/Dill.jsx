@@ -6,10 +6,11 @@ import clsx from "clsx";
 const wallet = [
   {name:'00', wallet: '0xD73d38C9850A0006D5BD28A01Da915feA7673c25'},
   {name:'01', wallet: '0x67815283CE257c7dA36d1498Bad4059896F922c1'},
-  {name:'04', wallet: '0xfd3aed9AFa6e07367Bf18bf9d6543d110Fb9c849'}
+  {name:'04', wallet: '0xfd3aed9AFa6e07367Bf18bf9d6543d110Fb9c849'},
+  {name:'15', wallet: '0x4D39586CF57fdd7E06859a7a19Aae88416De5aC7'},
 ]
 
-// [{name:'15', wallet: '0x4D39586CF57fdd7E06859a7a19Aae88416De5aC7'},
+// [
 //   {name:'17', wallet: '0xB41cAD9FD4955C2c145c6Dc79932544315779743'},
 //   {name:'25', wallet: '0x46aa0d369ef0f1fC94ce579C1CE11F7D9620d0e9'},
 //   {name:'27', wallet: '0xfDc2442dB45C71fd18176941Bc7eBA61d5cac448'}
