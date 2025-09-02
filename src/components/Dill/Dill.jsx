@@ -97,18 +97,19 @@ const daysToExpire = (timeInSeconds)=> {
 
 
 const statPool = sorted.reduce((acc, { pool }) => {
-  const stat = pool.reduce((pAcc, i) => {
+  
+  const stat = pool.reduce((pAcc, i) => {  
     pAcc.staked += i.StakedAmount / 1e9;
-    pAcc.rewards += i.Earning / 1e9;
+    pAcc.totalRewards += i.TotalReward / 1e9;
     pAcc.number += 1;
     return pAcc;
-  }, { staked: 0, number: 0, rewards: 0 });
+  }, { staked: 0, number: 0, totalRewards: 0 });
 
   acc.staked += stat.staked;
   acc.number += stat.number;
-  acc.rewards += stat.rewards;
+  acc.totalRewards += stat.totalRewards;
   return acc;
-}, { staked: 0, number: 0, rewards: 0 });
+}, { staked: 0, number: 0, totalRewards: 0 });
 
   return (
 <table className={s.table}>
@@ -119,6 +120,7 @@ const statPool = sorted.reduce((acc, { pool }) => {
       <th>Status</th>
       <th>StakedAmount</th>
       <th>TotalRewards</th>
+      <th>Earnings (24h)</th>
       <th>OperatorAddress</th>
       <th>Days to expire</th>
       <th>CreateTime</th>
@@ -130,8 +132,9 @@ const statPool = sorted.reduce((acc, { pool }) => {
     <tbody key={name}>
       <tr>
         <td
-          colSpan={9}
+          colSpan={10}
           style={{
+            fontSize: "24px",
             fontWeight: "bold",
             background: "#ffffffff",
             position: "sticky",
@@ -150,6 +153,7 @@ const statPool = sorted.reduce((acc, { pool }) => {
           <td className={status(p.Status)}>{p.Status}</td>
           <td>{`${p.StakedAmount / 1e9} / 36000`}</td>
           <td className={s.rewards}>{(p.TotalReward / 1e9).toFixed(2)}</td>
+          <td className={s.earning}>{(p.Earning / 1e9).toFixed(2)}</td>
           <td>{p.OperatorAddress}</td>
           <td className={getClassName(p.ExpirationTime)}>{daysToExpire(p.ExpirationTime)}</td>
           <td>{toLocalTime(p.CreationTime)}</td>
@@ -171,7 +175,7 @@ const statPool = sorted.reduce((acc, { pool }) => {
             height: 30,
           }}
         >
-          {`Total: ${statPool.number}, Staked: ${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked} totalRewards: ${statPool.rewards.toFixed(2)} averagePerAcc: ${(statPool.rewards / statPool.number).toFixed(2)}`} 
+          {`Total: ${statPool.number}, Staked: ${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked} totalRewards: ${statPool.totalRewards.toFixed(2)}`} 
         </td>
       </tr>
 </table>
