@@ -119,12 +119,12 @@ const statPool = sorted.reduce((acc, { pool }) => {
       <th>PoolAddress</th>
       <th>Status</th>
       <th>StakedAmount</th>
-      <th>TotalRewards</th>
+      <th>Total Rewards</th>
       <th>Earnings (24h)</th>
-      <th>OperatorAddress</th>
+      <th>Operator Address</th>
       <th>Days to expire</th>
-      <th>CreateTime</th>
-      <th>ExpTime</th>
+      <th>Create Time</th>
+      <th>Expire Time</th>
     </tr>
   </thead>
 
