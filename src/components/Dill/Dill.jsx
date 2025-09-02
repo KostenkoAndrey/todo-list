@@ -99,14 +99,16 @@ const daysToExpire = (timeInSeconds)=> {
 const statPool = sorted.reduce((acc, { pool }) => {
   const stat = pool.reduce((pAcc, i) => {
     pAcc.staked += i.StakedAmount / 1e9;
+    pAcc.rewards += i.Earning / 1e9;
     pAcc.number += 1;
     return pAcc;
-  }, { staked: 0, number: 0 });
+  }, { staked: 0, number: 0, rewards: 0 });
 
   acc.staked += stat.staked;
   acc.number += stat.number;
+  acc.rewards += stat.rewards;
   return acc;
-}, { staked: 0, number: 0 });
+}, { staked: 0, number: 0, rewards: 0 });
 
   return (
 <table className={s.table}>
@@ -169,7 +171,7 @@ const statPool = sorted.reduce((acc, { pool }) => {
             height: 30,
           }}
         >
-          {`Total:${statPool.number}, Staked:${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked}`} 
+          {`Total: ${statPool.number}, Staked: ${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked} totalRewards: ${statPool.rewards.toFixed(2)} averagePerAcc: ${(statPool.rewards / statPool.number).toFixed(2)}`} 
         </td>
       </tr>
 </table>
