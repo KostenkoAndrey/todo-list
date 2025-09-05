@@ -102,6 +102,8 @@ const daysToExpire = (timeInSeconds)=> {
 
 const statPool = sorted.reduce((acc, { pool }) => {
   const stat = pool.reduce((pAcc, i) => {  
+  console.log(i);
+  
     pAcc.staked += i.StakedAmount / 1e9;
     pAcc.totalRewards += i.TotalReward / 1e9;
     pAcc.number += 1;
