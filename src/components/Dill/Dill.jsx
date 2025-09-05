@@ -13,6 +13,11 @@ const wallet = [
   {name:'27', wallet: '0xfDc2442dB45C71fd18176941Bc7eBA61d5cac448'},
 ]
 
+// {name:'42 owner', wallet: '0x530B6d48eA5bb3D3Eb00BA481E9870DDDb157D4f'},
+//   {name:'28 owner', wallet: '0xcE5c41bC41D75fc8e8171d9FE1c1A2D64D3A7984'},
+//   {name:'24 owner', wallet: '0x65b32412382fb669C3179428eBfC3b25Ae8D699B'},
+//   {name:'10 owner', wallet: '0x5cbC47E4f335a6D526e1adBC62e28Ca69062f7c9'},
+
 const Dill = () => {
   const [total, setTotal] = useState([]);
 
@@ -95,15 +100,13 @@ const daysToExpire = (timeInSeconds)=> {
   return days;
 };
 
-
 const statPool = sorted.reduce((acc, { pool }) => {
-  
   const stat = pool.reduce((pAcc, i) => {  
     pAcc.staked += i.StakedAmount / 1e9;
     pAcc.totalRewards += i.TotalReward / 1e9;
     pAcc.number += 1;
     return pAcc;
-  }, { staked: 0, number: 0, totalRewards: 0 });
+  }, { staked: 0, number: 0, totalRewards: 0});
 
   acc.staked += stat.staked;
   acc.number += stat.number;
@@ -111,7 +114,7 @@ const statPool = sorted.reduce((acc, { pool }) => {
   return acc;
 }, { staked: 0, number: 0, totalRewards: 0 });
 
-  return (
+return (
 <table className={s.table}>
   <thead>
     <tr className={s.header}>
@@ -153,7 +156,7 @@ const statPool = sorted.reduce((acc, { pool }) => {
           <td className={status(p.Status)}>{p.Status}</td>
           <td>{`${p.StakedAmount / 1e9} / 36000`}</td>
           <td className={s.rewards}>{(p.TotalReward / 1e9).toFixed(2)}</td>
-          <td className={s.earning}>{(p.Earning / 1e9).toFixed(2)}</td>
+          <td className={`${(p.Earning / 1e9).toFixed(2) > 14.2 ? s.earning : s.earning_red}`}>{(p.Earning / 1e9).toFixed(2)}</td>
           <td>{p.OperatorAddress}</td>
           <td className={getClassName(p.ExpirationTime)}>{daysToExpire(p.ExpirationTime)}</td>
           <td>{toLocalTime(p.CreationTime)}</td>

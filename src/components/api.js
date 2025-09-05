@@ -1,8 +1,5 @@
 import axios from "axios";
-
-
 const BASE_URL = "https://contacts-app-xj5y.onrender.com";
-// const WALLET = "0xD73d38C9850A0006D5BD28A01Da915feA7673c25";
 
 export const fetchData = async (wallet) => {
   try {
@@ -13,63 +10,54 @@ export const fetchData = async (wallet) => {
   }
 };
 
+// const acc0 = [14407.62, 3685.45, 3699.22, 3699.28, 3699.31, 3699.31, 3699.18, 3699.31, 37010.95, 3708.69, 3713.26, 3754.68, 3754.63, 3791.89, 3791.66, 3791.63, 7271.25, 3671.39, 3739.71, 3745.76, 10878.48];
+// const acc1 = [3649.5046, 3791.9603, 3793.7434, 38619.8985, 3913.7723];
+// const acc2 = [3794.4690, 3804.5383, 3917.1109];
+// const acc3 = [3794.4027, 3801.0168, 3887.1260];
+// const acc4 = [3633.1083, 3794.3559, 38478.8283, 3914.9237];
+// const acc5 = [3758.4357, 3780.9130, 3917.2161];
+// const acc6 = [3794.3389, 3915.3736];
+// const acc7 = [3794.5093, 3913.9288];
+// const acc8 = [3790.8937, 3794.3255, 3840.3333, 3917.0467];
+// const acc9 = [3787.5137, 3794.3895, 3913.9319];
+// const acc10 = [3750.9794, 3905.2368];
+// const acc11 = [3710.2317, 3710.2007, 3635.3040, 3781.9216];
+// const acc12 = [3757.6786, 3888.3064];
+// const acc13 = [3887.9216];
+// const acc14 = [3758.6975, 3907.3285];
+// const acc15 = [3644.4183, 38837.1212, 3905.3031];
+// const acc16 = [3859.1935];
+// const acc17 = [3633.1356, 3749.9162, 38241.0704, 3936.0542];
+// const acc18 = [3758.6415, 3883.7764];
+// const acc19 = [3756.3202, 3790.3714, 3929.9863];
+// const acc20 = [3753.7306, 3899.9041];
+// const acc21 = [3888.4695];
+// const acc22 = [3782.9119, 3905.2668];
+// const acc23 = [3872.1471];
+// const acc24 = [3877.7228];
+// const acc25 = [3680.0634, 3782.8924, 3886.0307, 39326.5405, 46825.6323];
+// const acc26 = [3962.3929];
+// const acc27 = [3628.1092, 38611.4288, 3949.2819];
+// const acc47 = [3794.0843, 3836.5518];
 
-// export const indexAddress = [
-// '0xaa67c80Be7927228889A3301603F6e89d8E64CD6',
-// '0xd2454a82c1c1749dbe4e215c093fb5ed969600a6',
-// '0x515f11533390419f2D5eA1efda7A59e13664D10d',
-// '0x908595c8c086e35157508fd904c875bbc15cd593',
-// '0x4bbe83e7fac6e20b0aa7720c19d95e0955cf46d8',
-// '0x0f10801c23b1a5acb00dc4db9ba0e5bdcd7ccfe8',
-// '0x64a5d3a0c8379bb75d3cba01a49dcec5a202d3c1',
-// '0x94b88e3d68672d7cee89758ff62cf3539c1d2c76',
-// '0x660b3ceaf7dee9e3cd1b5855dec8adf6570fb314',
-// '0x09a9cb3bc2d83c539a43a7dcd19e16cbe7f641d8',
-// '0x53ff01a51a3185da5859c54c556b1d3e7f5ac0f4',
-// '0xd428f63294d9e30e800eea2e761ebeaa87ff99ae',
-// '0x01d146a388e018bc0353174577a17ed11918341e',
-// '0xcd367d4489881bec132a7559b00693d7fa8e2b36',
-// '0x9be8bdb5e450aef1dec389920e7f3b339ff3e0d3',
-// '0x334eedc040fae78a82e5ce9169fc9dd8b8d90799',
-// '0x8fb42b60372c970edcb92dd757ced9451658030c',
-// '0x2034e9c211fca380537143188ab7e17a7a34ebcf',
-// '0xb991928b84252d54b2e9e85805a552e5375b39cb',
-// '0x05591a890213494b96d63ece2cebfc61feb62757',
-// '0xef2f7005e19c3f15ee4a2a4f87783d3c3692006d',
-// '0x2e54ca21a88cdedb08684c781c700c772b0aa691',
-// '0xb67dc5d80fc6bb37eec9716d7622becf9c4664c5',
-// '0x245110f1d272f8832ec4cd3f013a0260e050aa3a',
-// '0x1b76382a4a470988830896086c3a0076df6de7cc',
-// '0x3057e5Ab5480a9bCA5fe310623778Ff6c39db247',
-// '0x948e1897a16Ce8ddb24b8F266D1837E123f28Ee0',
-// '0xEC519047BBfB4EAC9328075f4a38A448085646C1',
-// '0x8c2127acc75830444ec29904dfe6bfa2e9240b01',
-// '0xde340d33ae0fdd9f60b625997f4b0525b3ad6887',
-// '0x4dd592e0c37f6eae7a8d070403bd3b7f796d8681',
-// '0xbb07db665c0508c58cfa8a168d671a8839e90656',
-// '0x76c8c11aea85040ed85740082642fbb973b6e2c5',
-// '0x729ae6da586ea9e2579b378c2117ea98fa86aa86',
-// '0x148639cf469f2250cc8ca9a0b7dc925125603aee',
-// '0xa907734ed2837a597d41163124857820013db865',
-// '0xff814e572d58109175c5e95c9cb1d9fff841d24b',
-// '0xd23035e73a66184a54385fe91f8482239eaacdbd',
-// '0x1734fc7fe377207a75a8bb0caa816f0f8589810c',
-// '0x22e3077d82748b324f836a6f25fc314ed31b2990',
-// '0x11aa808077479716d1f8203943db456dfaf094dd',
-// '0x7180d1f5f5bf37953c20e57fc045cbc622e68dfc',
-// '0x8cbae61dd366e509e5c7d8be479281dd897c62bd',
-// '0x5a6e6288da228aa94ff396b3b3e4ed7dea23ef11',
-// '0x1ba5b16031c208668ffc7e63de5ced1223f69d4b',
-// '0x8db5a01cb8cd4187248f6de8b45e45d255166a03',
-// '0x6e02993941554093db5660547f66b30ceccd8373',
-// '0x0402ace89c1f1836daa89228baee46467b3e9d39',
-// '0x4d20683281c7e0d4f24117e50b1fc7dbc06f3867',
-// '0xaa895ee5cb3145cd145fdedb7ac5cbfe35677bc9',
-// '0x01c266ae247422028bb628b1d4199314bdb3718b',
-// '0xf9a32cb215b2323a2bd8ef199f67bb7a17bf3df1'
-// ];
+// const ALL = [...acc0, ...acc1, ...acc2, ...acc3, ...acc4, ...acc5, ...acc6, ...acc7, ...acc8, ...acc9, ...acc10, ...acc11, ...acc12, ...acc13, ...acc14, ...acc15, ...acc16, ...acc17, ...acc18, ...acc19, ...acc20, ...acc21, ...acc22, ...acc23, ...acc24, ...acc25, ...acc26, ...acc27, ...acc47];
+// const ALL1 = [acc0, acc1, acc2, acc3, acc4, acc5, acc6, acc7, acc8, acc9, acc10, acc11, acc12, acc13, acc14, acc15, acc16, acc17, acc18, acc19, acc20, acc21, acc22, acc23, acc24, acc25, acc26, acc27, acc47];
 
+// const total = ALL.reduce((acc, e)=>{
+// acc += e % 3600;
+// return acc;
+// },0);
 
+// const byAcc = ALL1.reduce((acc, e, i)=>{
+//     const stat = e.reduce((accumulate, e)=>{
+//       return accumulate += e % 3600;
+//     }, 0);
 
+//     acc.accounts.push({
+//     account: i,
+//     amount: stat.toFixed(2),
+//   });
 
-
+//   acc.total += stat;
+//   return acc;
+// },{ accounts: [], total: 0 });
