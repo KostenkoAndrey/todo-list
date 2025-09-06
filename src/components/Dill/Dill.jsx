@@ -69,7 +69,7 @@ if (sorted.length === 0) {
       status === "ActiveFull" ? s.activeFull : null,
       status === "ActiveOpen" ? s.activeOpen : null,
       status === "UnStaking" ? s.unStaking : null,
-      status === "AwaitingLiquidation" ? s.awaitingLiquidation : null,
+      status === "AwaitingLiquidation" ? s.creating : null,
       status === "Creating" ? s.creating : null
     );
   };
@@ -121,7 +121,7 @@ return (
   <thead>
     <tr className={s.header}>
       <th>N</th>
-      <th>PoolAddress</th>
+      <th>Pool Address</th>
       <th>Status</th>
       <th>StakedAmount</th>
       <th>Total Rewards</th>
@@ -168,18 +168,7 @@ return (
     </tbody>
   ))}
   <tr>
-        <td
-          colSpan={9}
-          style={{
-            fontWeight: "bold",
-            fontSize: '20px',
-            color: 'red',
-            background: "#ffffffff",
-            position: "sticky",
-            top: 0,
-            height: 30,
-          }}
-        >
+        <td colSpan={10} className={s.total} >
           {`Total: ${statPool.number}, Staked: ${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked} totalRewards: ${statPool.totalRewards.toFixed(2)}`} 
         </td>
       </tr>

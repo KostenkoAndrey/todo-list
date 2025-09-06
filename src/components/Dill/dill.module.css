@@ -5,16 +5,12 @@ border-collapse: collapse;
 width: 1280px;
 }
 
-thead{
-border: 2px solid black;
-}
-
 th, td {
 color: black;
-  border: 1px solid black;
-  padding: 0 4px;
-  text-align: center;
-  font-size: 16px;
+border: 1px solid black;
+padding: 0 4px;
+text-align: center;
+font-size: 16px;
 }
 
 tbody tr:nth-child(odd) {
@@ -39,10 +35,7 @@ background-color: rgb(167, 165, 167);
     color: orange;
     font-weight: 700;
 }
-.awaitingLiquidation {
-    color: #007bff;
-    font-weight: 700;
-}
+
 .creating {
     color: #007bff;
     font-weight: 700;
@@ -53,15 +46,15 @@ background-color: rgb(167, 165, 167);
   font-weight: 700;
 }
 
-.days.green {
+.green {
   color: green;
 }
 
-.days.orange {
+.orange {
   color: orange;
 }
 
-.days.red {
+.red {
   color: red;
 }
 
@@ -78,4 +71,14 @@ background-color: rgb(167, 165, 167);
 .earning_red{
   font-weight: 700;
   background-color: rgb(255, 0, 0);
+}
+
+.total {
+font-weight: 700;
+font-size:24px;
+color: red;
+background-color: #ffffffff;
+position: sticky;
+top: 0;
+height: 30;
 }
