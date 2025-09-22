@@ -160,7 +160,7 @@ return (
           <td>{`${p.StakedAmount / 1e9} / 36000`}</td>
           <td className={s.rewards}>{(p.TotalReward / 1e9).toFixed(2)}</td>
           <td className={`${(p.Earning / 1e9).toFixed(2) > 14.2 ? s.earning : s.earning_red}`}>{(p.Earning / 1e9).toFixed(2)}</td>
-          <td className={s.rewards}>{((p.TotalReward / 1e9) - (p.TotalReward / 1e9) * 0.72).toFixed(2)}</td>
+          <td className={s.rewards}>{((p.TotalReward / 1e9) * 0.28).toFixed(2)}</td>
           <td>{p.OperatorAddress}</td>
           <td className={getClassName(p.ExpirationTime)}>{daysToExpire(p.ExpirationTime)}</td>
           <td>{toLocalTime(p.CreationTime)}</td>
@@ -171,7 +171,7 @@ return (
   ))}
   <tr>
         <td colSpan={11} className={s.total} >
-          {`Total: ${statPool.number}, Staked: ${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked} totalRewards: ${statPool.totalRewards.toFixed(2)}`} 
+          {`Total: ${statPool.number}, Staked: ${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked}, totalRewards: ${statPool.totalRewards.toFixed(2)}, ownRewards: ${((statPool.totalRewards) * 0.28).toFixed(2)}`} 
         </td>
       </tr>
 </table>
