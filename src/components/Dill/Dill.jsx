@@ -101,9 +101,8 @@ const daysToExpire = (timeInSeconds)=> {
 };
 
 const statPool = sorted.reduce((acc, { pool }) => {
+
   const stat = pool.reduce((pAcc, i) => {  
-  console.log(i);
-  
     pAcc.staked += i.StakedAmount / 1e9;
     pAcc.totalRewards += i.TotalReward / 1e9;
     pAcc.number += 1;
@@ -159,7 +158,7 @@ return (
           <td className={status(p.Status)}>{p.Status}</td>
           <td>{`${p.StakedAmount / 1e9} / 36000`}</td>
           <td className={s.rewards}>{(p.TotalReward / 1e9).toFixed(2)}</td>
-          <td className={`${(p.Earning / 1e9).toFixed(2) > 14.2 ? s.earning : s.earning_red}`}>{(p.Earning / 1e9).toFixed(2)}</td>
+          <td className={`${(p.Earning / 1e9).toFixed(2) > 14 ? s.earning : s.earning_red}`}>{(p.Earning / 1e9).toFixed(2)}</td>
           <td className={s.rewards}>{((p.TotalReward / 1e9) * 0.28).toFixed(2)}</td>
           <td>{p.OperatorAddress}</td>
           <td className={getClassName(p.ExpirationTime)}>{daysToExpire(p.ExpirationTime)}</td>
