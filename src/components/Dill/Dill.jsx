@@ -103,6 +103,8 @@ const daysToExpire = (timeInSeconds)=> {
 const statPool = sorted.reduce((acc, { pool }) => {
 
   const stat = pool.reduce((pAcc, i) => {  
+    console.log(i.Earning);
+    
     pAcc.staked += i.StakedAmount / 1e9;
     pAcc.totalRewards += i.TotalReward / 1e9;
     pAcc.number += 1;
@@ -170,7 +172,7 @@ return (
   ))}
   <tr>
         <td colSpan={11} className={s.total} >
-          {`Total: ${statPool.number}, Staked: ${statPool.staked}, toStake: ${(statPool.number * 36000) - statPool.staked}, totalRewards: ${statPool.totalRewards.toFixed(2)}, ownRewards: ${((statPool.totalRewards) * 0.28).toFixed(2)}`} 
+          {`Total: ${statPool.number}, Staked: ${statPool.staked.toLocaleString('ru-RU')}, toStake: ${(statPool.number * 36000) - statPool.staked}, totalRewards: ${statPool.totalRewards.toFixed(2)}, ownRewards: ${((statPool.totalRewards) * 0.28).toFixed(2)}`} 
         </td>
       </tr>
 </table>
